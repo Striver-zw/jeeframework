@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-02-16 23:04:56
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.gen.dao.GenCodeDao">
+
+	<sql id="GenCodeColumns">
+		SELECT
+			s.id AS "id",
+			s.template_name AS "templateName",
+			s.author AS "author",
+			s.descs AS "desc",
+			s.table_name AS "tableName",
+			s.alias AS "alias",
+			s.createdate AS "createdate"
+		FROM gen_code s
+	</sql>
+
+	<insert id="saveMode" parameterType="GenCode" >
+		INSERT INTO gen_code(
+			id,
+			template_name,
+			author,
+			descs,
+			table_name,
+			alias,
+			createdate
+		)VALUES(
+			#{id},
+			#{templateName},
+			#{author},
+			#{desc},
+			#{tableName},
+			#{alias},
+			#{createdate}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="GenCode">
+		<include refid="GenCodeColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="GenCode" parameterType="GenCode">
+		<include refid="GenCodeColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE gen_code SET 
+			id = #{id},
+			template_name = #{templateName},
+			author = #{author},
+			descs = #{desc},
+			table_name = #{tableName},
+			alias = #{alias},
+			createdate = #{createdate}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM gen_code WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="GenCode">
+		<include refid="GenCodeColumns"/>
+			WHERE s.id = #{id}
+	</select>
+</mapper>

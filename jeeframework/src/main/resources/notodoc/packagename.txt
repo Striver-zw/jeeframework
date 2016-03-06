@@ -1,0 +1,175 @@
+jeeframework\src\main\java\zw\singleton\jeeframework\app\sms\SMSService.java
+jeeframework\src\main\java\zw\singleton\jeeframework\app\sms\utils\SmsClientAccessTool.java
+jeeframework\src\main\java\zw\singleton\jeeframework\app\sms\utils\SmsClientKeyword.java
+jeeframework\src\main\java\zw\singleton\jeeframework\app\sms\utils\SmsClientOverage.java
+jeeframework\src\main\java\zw\singleton\jeeframework\app\sms\utils\SmsClientQueryCall.java
+jeeframework\src\main\java\zw\singleton\jeeframework\app\sms\utils\SmsClientQueryStatusReport.java
+jeeframework\src\main\java\zw\singleton\jeeframework\app\sms\utils\SmsClientSend.java
+jeeframework\src\main\java\zw\singleton\jeeframework\app\sysutils\RequestDeviceUtil.java
+jeeframework\src\main\java\zw\singleton\jeeframework\app\version\VersionUtils.java
+
+
+
+jeeframework\src\main\java\zw\singleton\jeeframework\common\annotations\Anno.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\annotations\Child.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\annotations\Dome.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\annotations\FieldMeta.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\annotations\Parent.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\annotations\SortableField.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\annotations\Test.java
+
+jeeframework\src\main\java\zw\singleton\jeeframework\common\constant\Config.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\constant\Constant.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\constant\FinalData.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\generatedcode\ConfigurationXml.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\generatedcode\ConnectionDataBase.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\generatedcode\TemplateJava.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\generatedcode\TemplateXML.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\convers\DataType.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\datau\Base64.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\datau\CaculateDistance.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\datau\MD5.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\datau\MD5keyBean.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\datavalue\Arith.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\datavalue\DataRegular.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\datavalue\DataUnescape.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\datavalue\DataValue.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\download\Base64.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\download\FileUtils.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\download\FileUtilsJ.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\download\SaveImage.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\download\UploadUtil.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\dwr\DwrScriptSessionManagerUtil.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\dwr\DwrTool.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\dwr\MessagePush.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\excel\ExcelField.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\excel\ExcelUtil.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\excel\ExportExcel.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\excel\ImportExcel.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\images\ImageCut.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\images\ImageMarkLogoByIcon.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\images\ImageUtils.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\Interception\DataInterceptionUtil.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\json\BaseDataController.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\json\JsonPerson.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\properties\GetPropertiesKey.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\properties\PropertiesLoader.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\random\GetRandomUtil.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\random\IdGen.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\reflect\GenericClass.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\reflect\Reflections.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\spider\Spider.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\sysconfig\ConfigUtils.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\times\CTimeCompareTo.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\times\CtimeDateFormat.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\times\CTimeUtils.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\times\DateUtils.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\zxing\BarcodeFactory.java
+jeeframework\src\main\java\zw\singleton\jeeframework\common\utils\zxing\QRCodeUtil.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\basis\base\BaseDao.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\basis\base\BaseEntity.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\basis\fiflt\AuthFilter.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\basis\fiflt\SecureFilter.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\basis\interceptor\PageInterceptor.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\basis\page\Page.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\basis\page\PageBean.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\basis\page\PageModel.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\basis\page\Pager.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\basis\page\Pages.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\sys\controller\SysUserController.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\sys\dao\SysUserDao.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\sys\entity\SysUser.java
+jeeframework\src\main\java\zw\singleton\jeeframework\modules\sys\service\SysUserService.java
+jeeframework\src\test\java\zw\singletion\jeeframework\test\BaseTest.java
+jeeframework\src\test\java\zw\singletion\jeeframework\test\CodeCounter.java
+jeeframework\src\test\java\zw\singletion\jeeframework\test\CTimeUtilsTest.java
+jeeframework\src\test\java\zw\singletion\jeeframework\test\StringInterceptionUtilTest.java
+统计文件：82
+代码行数：6372
+注释行数：4084
+空白行数：1088
+
+
+org.springframework.dao.TransientDataAccessResourceException: 
+### Error updating database.  Cause: com.mysql.jdbc.PacketTooBigException: Packet for query is too large (1066 > 1024). You can change this value on the server by setting the max_allowed_packet' variable.
+### The error may involve zw.singleton.jeeframework.modules.appinterface.bookdesc.dao.AppBookdescDao.saveMode-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO app_bookdesc(    id,    bookclass,    count,    fcount,    froms,    img,    name,    rcount,    summary,    type_id   )VALUES(    ?,    ?,    ?,    ?,    ?,    ?,    ?,    ?,    ?,    ?   )
+### Cause: com.mysql.jdbc.PacketTooBigException: Packet for query is too large (1066 > 1024). You can change this value on the server by setting the max_allowed_packet' variable.
+; SQL []; Packet for query is too large (1066 > 1024). You can change this value on the server by setting the max_allowed_packet' variable.; nested exception is com.mysql.jdbc.PacketTooBigException: Packet for query is too large (1066 > 1024). You can change this value on the server by setting the max_allowed_packet' variable.
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:106)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:371)
+	at com.sun.proxy.$Proxy20.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:240)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:51)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:52)
+	at com.sun.proxy.$Proxy29.saveMode(Unknown Source)
+	at zw.singleton.jeeframework.modules.appinterface.bookdesc.service.AppBookdescService.saveAppBookdesc(AppBookdescService.java:37)
+	at zw.singletion.jeeframework.test.BaseTest.insetS1(BaseTest.java:133)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:83)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:233)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:87)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:176)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: com.mysql.jdbc.PacketTooBigException: Packet for query is too large (1066 > 1024). You can change this value on the server by setting the max_allowed_packet' variable.
+	at com.mysql.jdbc.MysqlIO.send(MysqlIO.java:3910)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2596)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2776)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2838)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2082)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1307)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:62)
+	at com.sun.proxy.$Proxy32.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:44)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:69)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:62)
+	at com.sun.proxy.$Proxy30.update(Unknown Source)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:48)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:105)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:71)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:152)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:358)
+	... 35 more
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-01-26 10:09:06
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.appinterface.bookinfo.dao.AppBookinfoDao">
+
+	<sql id="AppBookinfoColumns">
+		SELECT
+			s.id AS "id",
+			s.title AS "title",
+			s.bookclass AS "bookclass",
+			s.bookid AS "bookid"
+		FROM app_bookinfo s
+	</sql>
+
+	<insert id="saveMode" parameterType="AppBookinfo" >
+		INSERT INTO app_bookinfo(
+			id,
+			title,
+			bookclass,
+			bookid
+		)VALUES(
+			#{id},
+			#{title},
+			#{bookclass},
+			#{bookid}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="AppBookinfo">
+		<include refid="AppBookinfoColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="AppBookinfo" parameterType="AppBookinfo">
+		<include refid="AppBookinfoColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE app_bookinfo SET 
+			id = #{id},
+			title = #{title},
+			bookclass = #{bookclass}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM app_bookinfo WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="AppBookinfo">
+		<include refid="AppBookinfoColumns"/>
+			WHERE s.id = #{id}
+	</select>
+</mapper>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-01-27 17:03:17
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.appinterface.joke.dao.AppJokeDao">
+
+	<sql id="AppJokeColumns">
+		SELECT
+			s.id AS "id",
+			s.ct AS "ct",
+			s.img AS "img",
+			s.title AS "title",
+			s.type AS "type",
+			s.text AS "text"
+		FROM app_joke s
+	</sql>
+
+	<insert id="saveMode" parameterType="AppJoke" >
+		INSERT INTO app_joke(
+			id,
+			ct,
+			img,
+			title,
+			type,
+			text
+		)VALUES(
+			#{id},
+			#{ct},
+			#{img},
+			#{title},
+			#{type},
+			#{text}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="AppJoke" parameterType="AppJoke">
+		<include refid="AppJokeColumns"/>
+		<where>
+		<if test="entity.type != null and entity.type!=''">
+			type=#{entity.type}
+		</if>
+		</where>
+	</select>
+
+	<select id="findSelect" resultType="AppJoke" parameterType="AppJoke">
+		<include refid="AppJokeColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE app_joke SET 
+			id = #{id},
+			ct = #{ct},
+			img = #{img},
+			title = #{title},
+			type = #{type},
+			text = #{text}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM app_joke WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="AppJoke">
+		<include refid="AppJokeColumns"/>
+			WHERE s.id = #{id}
+	</select>
+</mapper>

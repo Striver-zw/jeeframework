@@ -1,0 +1,34 @@
+id	String		分类ID
+name	String		分类名称
+
+
+
+名称	类型	示例值	描述
+id	String		图书ID
+title	String		标题
+count	String		浏览次数
+img	String		图书配图
+bookclass	String		图书分类的id
+summary	String		图书简介
+from	String		出版社/来源
+author	String		作者
+
+
+
+名称	类型	示例值	描述
+id	String		书籍ID
+title	String		标题
+count	String		浏览次数
+img	String		图书配图
+bookclass	String		图书分类的id
+summary	String		图书简介
+from	String		出版社/来源
+author	String		作者
+list	String		图书目录
+
+
+名称	类型	示例值	描述
+id	String		页面ID
+title	String		页面标题
+message	String		页面内容
+book	String		图书ID

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-01-26 15:43:07
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.appinterface.riddleitem.dao.AppRiddleitemDao">
+
+	<sql id="AppRiddleitemColumns">
+		SELECT
+			s.id AS "id",
+			s.answer AS "answer",
+			s.title AS "title",
+			s.type_id AS "typeId",
+			s.type_name AS "typeName"
+		FROM app_riddleitem s
+	</sql>
+
+	<insert id="saveMode" parameterType="AppRiddleitem" >
+		INSERT INTO app_riddleitem(
+			id,
+			answer,
+			title,
+			type_id,
+			type_name
+		)VALUES(
+			#{id},
+			#{answer},
+			#{title},
+			#{typeId},
+			#{typeName}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="AppRiddleitem">
+		<include refid="AppRiddleitemColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="AppRiddleitem" parameterType="AppRiddleitem">
+		<include refid="AppRiddleitemColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE app_riddleitem SET 
+			id = #{id},
+			answer = #{answer},
+			title = #{title},
+			type_id = #{typeId},
+			type_name = #{typeName}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM app_riddleitem WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="AppRiddleitem">
+		<include refid="AppRiddleitemColumns"/>
+			WHERE s.id = #{id}
+	</select>
+</mapper>

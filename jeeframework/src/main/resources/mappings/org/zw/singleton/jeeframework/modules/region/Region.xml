@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-01-17 20:02:20
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.region.dao.RegionDao">
+
+	<sql id="RegionColumns">
+		SELECT
+			s.REGION_ID AS "RegionId",
+			s.REGION_CODE AS "RegionCode",
+			s.REGION_NAME AS "RegionName",
+			s.PARENT_ID AS "ParentId",
+			s.REGION_LEVEL AS "RegionLevel",
+			s.REGION_ORDER AS "RegionOrder",
+			s.REGION_NAME_EN AS "RegionNameEn",
+			s.REGION_SHORTNAME_EN AS "RegionShortnameEn"
+		FROM region s
+	</sql>
+
+	<insert id="saveMode" parameterType="Region" >
+		INSERT INTO region(
+			REGION_ID,
+			REGION_CODE,
+			REGION_NAME,
+			PARENT_ID,
+			REGION_LEVEL,
+			REGION_ORDER,
+			REGION_NAME_EN,
+			REGION_SHORTNAME_EN
+		)VALUES(
+			#{RegionId},
+			#{RegionCode},
+			#{RegionName},
+			#{ParentId},
+			#{RegionLevel},
+			#{RegionOrder},
+			#{RegionNameEn},
+			#{RegionShortnameEn}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="Region">
+		<include refid="RegionColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="Region" parameterType="Region">
+		<include refid="RegionColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE region SET 
+			REGION_ID = #{RegionId},
+			REGION_CODE = #{RegionCode},
+			REGION_NAME = #{RegionName},
+			PARENT_ID = #{ParentId},
+			REGION_LEVEL = #{RegionLevel},
+			REGION_ORDER = #{RegionOrder},
+			REGION_NAME_EN = #{RegionNameEn},
+			REGION_SHORTNAME_EN = #{RegionShortnameEn}
+		WHERE REGION_ID = #{RegionId}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM region WHERE REGION_ID = #{REGION_ID}
+	</delete>
+
+	<select id="getMode" resultType="Region">
+		<include refid="RegionColumns"/>
+			WHERE s.REGION_ID = #{REGION_ID}
+	</select>
+	
+	<select id="findSelectRegionAll" resultType="Region">
+		<include refid="RegionColumns"/>
+			<where>
+				s.PARENT_ID = #{ParentId}
+			<if test="RegionName!=null and RegionName!=''">
+				 AND s.REGION_NAME = #{RegionName}
+			</if>
+			</where>
+	</select>
+</mapper>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+ xmlns:context="http://www.springframework.org/schema/context" 
+ xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:task="http://www.springframework.org/schema/task" 
+    xmlns:cache="http://www.springframework.org/schema/cache"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd
+       http://www.springframework.org/schema/cache  
+       http://www.springframework.org/schema/cache/spring-cache-3.2.xsd"
+	default-lazy-init="true">
+
+	
+	<!-- 配置属性占位符资源文件 -->
+	<context:property-placeholder location="classpath:jeeframework.properties"/>
+	<!-- 扫描包 -->
+	<context:component-scan base-package="org.zw.singleton.jeeframework"/>
+
+	<!-- 数据源配置	 使用淘宝的-->
+	 <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource" destroy-method="close">
+	 	<property name="username" value="${db.username}"/>
+	 	<property name="password" value="${db.password}"/>
+	 	<property name="driverClassName" value="${db.driverClassName}"/>
+	 	<property name="url" value="${db.url}"/>
+	 	
+	 	<!-- 配置连接池的初始值 -->
+		<property name="initialSize" value="${db.initialSize}" />
+		<!-- 连接池的最大值 -->
+		<!-- <property name="maxActive" value="500"/> -->
+		<!-- 最大空闲时，当经过一个高峰之后，连接池可以将一些用不到的连接释放，一直减少到maxIdle为止 -->
+		<!-- <property name="maxIdle" value="2"/> -->
+		<!-- 当最小空闲时，当连接少于minIdle时会自动去申请一些连接 -->
+		<property name="minIdle" value="${db.minIdle}" />
+		<property name="maxActive" value="${db.maxActive}" />
+		<!-- 配置获取连接等待超时的时间 -->
+		<property name="maxWait" value="${db.maxWait}" />
+		
+		
+		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		
+		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+		
+	<!-- 	<property name="validationQuery" value="${jdbc.testSql}" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" /> -->
+		
+		<!-- 打开PSCache，并且指定每个连接上PSCache的大小（Oracle使用）
+		<property name="poolPreparedStatements" value="true" />
+		<property name="maxPoolPreparedStatementPerConnectionSize" value="20" /> -->
+		
+		<!-- 配置监控统计拦截的filters -->
+	    <!-- <property name="filters" value="stat" /> -->
+	 </bean>	
+	 
+	<!-- mybatis spring整合  SqlSessionFactory交给spring容器管理	 -->       
+	 <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory"> 
+	 	<!-- 配置数据源 -->
+		<property name="dataSource" ref="dataSource"/>	
+			 
+		<!-- 配置mybatis映射器的地址。  -->
+		<!-- <property name="mapperLocations" value="classpath:mappings/zw/singleton/jeeframework/modules/*/*.xml"/>	 -->	
+		<property name="mapperLocations" value="classpath:mappings/**/*.xml"/>		
+		<!--<property name="mapperLocations" value="classpath:mappings/zw/singleton/jeeframework/modules/*/*/*.xml"/>  -->
+		
+		<!-- 配置mybatis类的别名 -->
+		<!-- <property name="typeAliases">
+			<array>
+				生成别名为""
+				<value>zw.singleton.jeeframework.modules.appinterface.appuser.entity.AppUser</value>
+				</array>
+		</property> -->
+		<!-- 配置mybatis类的别名  -->
+		<property name="typeAliasesPackage" value="org.zw.singleton.jeeframework"/>
+        <property name="typeAliasesSuperType" value="org.zw.singleton.jeeframework.modules.basis.base.BaseEntity"/>
+		
+		<!-- mybatis 分页插件 -->
+		<property name="plugins">
+			<array>
+				<bean class="org.zw.singleton.jeeframework.modules.basis.interceptor.PageInterceptor">
+					<!-- 设置数据库类型 -->
+					<property name="sysdb" value="${db.sysdb}"/>
+				</bean>
+			</array>
+		</property>  
+		
+	<!-- 配置mybatis 属性 -->
+	<property name="configurationProperties">
+		<props>
+			<!-- 对在此配置文件下的所有cache 进行全局性开/关设置。 默认true  -->
+			<prop key="cacheEnabled">true</prop>
+			
+			<!-- 全局启用或禁用延迟加载。当禁用时，所有关联对象都会即时加载。 -->
+			<prop key="lazyLoadingEnabled">true</prop>
+			
+			<!--  当查询返回map，字段值为空时，能映射到map -->
+			<prop key="callSettersOnNulls">true</prop>
+			
+			<!-- 当启用时，有延迟加载属性的对象在被调用时将会完全加载任意属性。否则，每种属性将会按需要加载。 -->
+			<prop key="aggressiveLazyLoading">true</prop>
+			
+			<!-- 设置但JDBC类型为空时,某些驱动程序 要指定值,default:OTHER，插入空值时不需要指定类型 -->
+			<prop key="jdbcTypeForNull">NULL</prop>
+			
+			<!-- 设置本地缓存范围 session:就会有数据的共享  statement:语句范围 (这样就不会有数据的共享 ) defalut:session -->
+			<prop key="localCacheScope">SESSION</prop>
+			
+			<!-- 指定 MyBatis 如何自动映射 数据基表的列 NONE：不隐射　PARTIAL:部分  FULL:全部  --> 
+			<prop key="autoMappingBehavior">PARTIAL</prop>
+			
+			<!-- 是否可以使用列的别名 (取决于驱动的兼容性) default:true -->
+			<prop key="useColumnLabel">true</prop>
+			
+			<!-- 允许JDBC 生成主键。需要驱动器支持。如果设为了true，这个设置将强制使用被生成的主键，有一些驱动器不兼容不过仍然可以执行。  default:false  -->
+			<prop key="useGeneratedKeys">false</prop>
+			
+			<!-- 是否允许单条sql 返回多个数据集  (取决于驱动的兼容性) default:true -->
+			<prop key="multipleResultSetsEnabled">true</prop>
+			
+			<!-- 使用驼峰命名法转换字段。 -->
+			<prop key="mapUnderscoreToCamelCase">true</prop>
+			
+			<!-- 这是默认的执行类型  （SIMPLE: 简单； REUSE: 执行器可能重复使用prepared statements语句；BATCH: 执行器可以重复执行语句和批量更新）  -->
+			<prop key="defaultExecutorType">SIMPLE</prop>
+		</props>
+	</property> 
+	
+	</bean>
+	
+		<!-- mybatis其实就是对jdbc一个封装，他只是提供一个sql映射，管理事务只需要管理mybatis的数据源即可 -->	
+	<!-- jdbc事务管理器 -->
+	<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>	
+	
+	<!-- 事务通知 -->
+	<tx:advice id="txAdvice">
+		<tx:attributes>
+			<tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+			<tx:method name="query*" propagation="SUPPORTS" read-only="true"/>
+			<tx:method name="*" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>	
+	
+	    <!-- 启用@Aspect支持 -->
+   <!--  <aop:aspectj-autoproxy/> -->
+    
+    
+    
+    
+    
+    
+<!-- 	<cache:annotation-driven cache-manager="ehcacheManager" proxy-target-class="true"/> -->
+<!-- 	<cache:annotation-driven  cache-manager="ehcacheManager"/>
+
+	<bean id="ehcacheManagerFactory"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:ehcache.xml" />
+	</bean>
+
+
+	声明cacheManager
+	<bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="ehcacheManagerFactory" />
+	</bean>
+     -->
+    
+    
+    
+	<!-- aop应用事务 -->
+	<aop:config>
+		<aop:pointcut expression="execution(* org.zw.singleton.jeeframework.*.*.service..*.*(..))" id="txPointcut"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+	</aop:config>
+    
+	 <!-- 扫描basePackage下所有以@MyBatisDao注解的接口 -->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+        <property name="basePackage" value="org.zw.singleton.jeeframework"/>
+        <property name="annotationClass" value="org.zw.singleton.jeeframework.modules.basis.base.MybatisDao"/>
+    </bean>
+    
+    <!-- 拦截器配置，拦截顺序：先执行后定义的，排在第一位的最后执行。-->
+    <mvc:interceptors>
+		<mvc:interceptor>
+			<!-- 拦截指定url -->
+			<!-- <mvc:mapping path="${adminPath}/**" /> -->
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/"/>
+			<mvc:exclude-mapping path="/login"/>
+			<bean class="org.zw.singleton.jeeframework.modules.basis.interceptor.LogInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+		<!-- 定义无Controller的path<->view直接映射 -->
+	<!-- <mvc:view-controller path="/" view-name="redirect:${web.view.index}"/> -->
+
+
+	
+<!-- 	
+	报错	使用缓存 annotation 配置 
+	<cache:annotation-driven cache-manager="ehCacheManager" />
+	spring 对 ehcache 的缓存工厂支持
+	<bean id="ehCacheManagerFactory"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:ehcache.xml" />
+		<property name="shared" value="false" />
+	</bean>
+	spring 对 ehcache 的缓存管理
+	<bean id="ehCacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="ehCacheManagerFactory"></property>
+	</bean> -->
+	
+	<context:annotation-config/> 
+    
+    <mvc:annotation-driven/>
+    
+    <!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
+	<mvc:default-servlet-handler />
+	
+	<!-- 静态资源映射 -->
+    <mvc:resources mapping="/assets/**" location="/assets/" cache-period="31536000"/>
+    
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>  
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/> 
+    
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+    	<property name="order" value="1"/>
+        <property name="mediaTypes">
+            <map>
+                <!-- 告诉视图解析器，返回的类型为json格式 -->
+                <entry key="json" value="application/json;charset=utf-8"/>
+                <entry key="html" value="text/html;charset=utf-8"/>
+            </map>
+        </property>
+        <property name="viewResolvers">
+        	<list>
+        		<bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+        		<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        			<property name="prefix" value="/WEB-INF/views/"/>
+        			<property name="suffix" value=".jsp"/>
+        			<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        		</bean>
+        	</list>
+        </property>
+        <property name="defaultViews">
+            <list>
+            <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" id="jsonView"/>
+            </list>
+        </property>
+    </bean>
+   
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+   	    <!--线程安全的访问session-->
+        <property name="messageConverters">  
+            <list>  
+                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>  
+            </list>  
+        </property>  
+    </bean> 
+    
+    <!-- 文件上传 -->  
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">  
+        <property name="maxUploadSize" value="100000000"/>  
+        <property name="defaultEncoding" value="UTF-8"/>  
+    </bean>
+	
+	<!-- 支持Shiro对Controller的方法级AOP安全控制 begin-->
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.apache.shiro.authz.UnauthorizedException">error/403</prop>
+				<!-- <prop key="java.lang.Throwable">error/500</prop> -->
+			</props>
+			</property>
+	</bean>
+	<!-- 支持Shiro对Controller的方法级AOP安全控制 end -->
+
+
+	<!-- 配置文件上传解析器
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		#{spring el} 表达式才会计算
+		<property name="maxUploadSize"  value="#{1024*1024*10}" />
+	</bean> -->
+	
+	<!-- 计划任务配置，用 @Service @Lazy(false)标注类，用@Scheduled(cron = "0 0 2 * * ?")标注方法 -->
+    <task:executor id="executor" pool-size="10"/> <task:scheduler id="scheduler" pool-size="10"/>
+    <task:annotation-driven scheduler="scheduler" executor="executor" proxy-target-class="true"/>
+    
+  <!--   <import resource="applicationContext-*.xml" /> -->
+    
+</beans>

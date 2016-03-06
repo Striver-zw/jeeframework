@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="delegatecomment_context" deleted="false" description="Comment for delegate methods" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.delegatecomment" name="delegatecomment">
+/**
+ * @deprecated
+ * @version
+ * ${tags}
+ * @author: singleton-zw
+ * ${see_to_target}
+ */</template><template autoinsert="false" context="constructorcomment_context" deleted="false" description="Comment for created constructors" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.constructorcomment" name="constructorcomment">
+/**
+ * @constructor
+ * @deprecated:
+ * ${tags}
+ * @author: singleton-zw
+ */
+ </template><template autoinsert="false" context="settercomment_context" deleted="false" description="Comment for setter method" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.settercomment" name="settercomment">
+ /**
+  * ${param}
+  */
+ </template><template autoinsert="false" context="methodcomment_context" deleted="false" description="Comment for non-overriding methods" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.methodcomment" name="methodcomment">
+ /**
+ * @methodsDescription:
+ * @methodName: ${enclosing_method}
+ * ${tags}
+ * @author: singleton-zw
+ * @return: ${return_type}
+ */
+</template><template autoinsert="false" context="fieldcomment_context" deleted="false" description="Comment for fields" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.fieldcomment" name="fieldcomment">
+/**
+ * @description: 
+ * @name: ${field}
+ * @type: ${field_type}
+ */
+</template><template autoinsert="false" context="filecomment_context" deleted="false" description="Comment for created Java files" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.filecomment" name="filecomment">
+ /**
+  * @projectName: ${project_name}
+  * @packageName: ${package_name}
+  * @fileName: ${file_name}
+  * @createDate: ${date}-${time}
+  * @author: ${user}
+  * @updateDescription:
+  * @updateAuthor:		
+  * @updateDate:
+  * @version: v1.0
+  * @---------------------------------------------	
+  * @Copyright (c)-${year}
+  */
+ </template><template autoinsert="false" context="overridecomment_context" deleted="false" description="Comment for overriding methods" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.overridecomment" name="overridecomment"> 
+ /**
+  * @enclosingMethod: ${enclosing_method}
+  * @overridden:${see_to_overridden}
+  * @methodsDescription:
+  * ${tags}
+  * @author: singleton-zw
+  * @return: ${return_type}
+  */
+ </template><template autoinsert="false" context="typecomment_context" deleted="false" description="Comment for created types" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.typecomment" name="typecomment">
+ /**
+  * @className: ${type_name}
+  * @description:
+  * @author: singleton-zw
+  * @createDate: ${date}-${time}
+  * @updateAuthor:
+  * @updateDate:
+  * @updateDesc:
+  * @version: v1.0
+  * @Copyright (c)-${year}
+  */
+ </template><template autoinsert="false" context="gettercomment_context" deleted="false" description="Comment for getter method" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.gettercomment" name="gettercomment">
+ /**
+  * @return the ${bare_field_name}
+  */</template></templates>

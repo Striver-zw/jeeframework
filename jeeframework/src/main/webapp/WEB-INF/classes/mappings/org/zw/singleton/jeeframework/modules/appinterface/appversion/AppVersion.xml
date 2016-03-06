@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-01-11 13:30:53
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.appinterface.appversion.dao.AppVersionDao">
+
+	<sql id="AppVersionColumns">
+		SELECT
+			s.id AS "Id",
+			s.version_name AS "VersionName",
+			s.version_code AS "VersionCode",
+			s.version_value AS "VersionValue",
+			s.version_time AS "VersionTime",
+			s.status AS "Status",
+			s.download_url AS "downloadUrl"
+		FROM app_version s
+	</sql>
+
+	<insert id="saveMode" parameterType="AppVersion" >
+		INSERT INTO app_version(
+			id,
+			version_name,
+			version_code,
+			version_value,
+			version_time,
+			status,
+			download_url
+		)VALUES(
+			#{id},
+			#{version_name},
+			#{version_code},
+			#{version_value},
+			#{version_time},
+			#{status},
+			#{download_url}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="AppVersion">
+		<include refid="AppVersionColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="AppVersion" parameterType="AppVersion">
+		<include refid="AppVersionColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE app_version SET 
+			id = #{id},
+			version_name = #{version_name},
+			version_code = #{version_code},
+			version_value = #{version_value},
+			version_time = #{version_time},
+			status = #{status}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM app_version WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="AppVersion">
+		<include refid="AppVersionColumns"/>
+			WHERE s.id = #{id}
+	</select>
+	
+	<!-- 查询最新版本号 -->
+	<select id="getAppVersionCode" resultType="AppVersion">
+		<include refid="AppVersionColumns"/>
+			WHERE s.status = #{status}
+	</select>
+</mapper>

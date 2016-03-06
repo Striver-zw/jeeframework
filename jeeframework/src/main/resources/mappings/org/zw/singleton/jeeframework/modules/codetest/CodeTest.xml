@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-01-19 15:45:33
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.codetest.dao.CodeTestDao">
+
+	<sql id="CodeTestColumns">
+		SELECT
+			s.id AS "id",
+			s.name AS "name",
+			s.orter AS "orter"
+		FROM code_test s
+	</sql>
+
+	<insert id="saveMode" parameterType="CodeTest" >
+		INSERT INTO code_test(
+			id,
+			name,
+			orter
+		)VALUES(
+			#{id},
+			#{name},
+			#{orter}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="CodeTest">
+		<include refid="CodeTestColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="CodeTest" parameterType="CodeTest">
+		<include refid="CodeTestColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE code_test SET 
+			id = #{id},
+			name = #{name},
+			orter = #{orter}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM code_test WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="CodeTest">
+		<include refid="CodeTestColumns"/>
+			WHERE s.id = #{id}
+	</select>
+</mapper>

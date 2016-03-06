@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-01-18 22:18:18
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.appinterface.appos.dao.AppOsDao">
+
+	<sql id="AppOsColumns">
+		SELECT
+			s.id AS "id",
+			s.model AS "model",
+			s.sdk AS "sdk",
+			s.releases AS "release",
+			s.froms AS "from",
+			s.uuids AS "uuid",
+			s.cpu1 AS "cpu1",
+			s.cpu2 AS "cpu2",
+			s.mac_address AS "macAddress",
+			s.install_time AS "installTime",
+			s.app_name AS "appName"
+		FROM app_os s
+	</sql>
+
+	<insert id="saveMode" parameterType="AppOs" >
+		INSERT INTO app_os(
+			id,
+			model,
+			sdk,
+			releases,
+			froms,
+			uuids,
+			cpu1,
+			cpu2,
+			mac_address,
+			install_time,
+			app_name
+		)VALUES(
+			#{id},
+			#{model},
+			#{sdk},
+			#{release},
+			#{from},
+			#{uuid},
+			#{cpu1},
+			#{cpu2},
+			#{macAddress},
+			#{installTime},
+			#{appName}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="AppOs">
+		<include refid="AppOsColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="AppOs" parameterType="AppOs">
+		<include refid="AppOsColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE app_os SET 
+			id = #{id},
+			model = #{model},
+			sdk = #{sdk},
+			releases = #{release},
+			froms = #{from},
+			uuids = #{uuid},
+			cpu1 = #{cpu1},
+			cpu2 = #{cpu2},
+			mac_address = #{macAddress},
+			install_time = #{installTime},
+			app_name = #{appName}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM app_os WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="AppOs">
+		<include refid="AppOsColumns"/>
+			WHERE s.id = #{id}
+	</select>
+	
+	
+	<select id="getAppOsCheck" resultType="AppOs">
+		<include refid="AppOsColumns"/>
+			WHERE s.model = #{model}
+			AND s.releases = #{release}
+			AND s.froms = #{from}
+			AND s.app_name = #{appName}
+	</select>
+</mapper>

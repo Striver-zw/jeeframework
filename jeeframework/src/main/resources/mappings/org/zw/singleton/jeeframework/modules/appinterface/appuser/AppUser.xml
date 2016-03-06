@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-01-11 13:20:30
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.appinterface.appuser.dao.AppUserDao">
+
+	<sql id="AppUserColumns">
+		SELECT
+			s.id AS "Id",
+			s.nickname AS "Nickname",
+			s.userpassword AS "Userpassword",
+			s.username AS "Username",
+			s.age AS "Age",
+			s.phone AS "Phone",
+			s.portrait AS "Portrait",
+			s.address AS "Address",
+			s.citys AS "Citys",
+			s.gender AS "Gender",
+			s.isvip AS "Isvip",
+			s.status AS "Status"
+		FROM app_user s
+	</sql>
+
+	<insert id="saveMode" parameterType="AppUser" >
+		INSERT INTO app_user(
+			id,
+			nickname,
+			userpassword,
+			username,
+			age,
+			phone,
+			portrait,
+			address,
+			citys,
+			gender,
+			isvip,
+			status
+		)VALUES(
+			#{id},
+			#{nickname},
+			#{userpassword},
+			#{username},
+			#{age},
+			#{phone},
+			#{portrait},
+			#{address},
+			#{citys},
+			#{gender},
+			#{isvip},
+			#{status}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="AppUser">
+		<include refid="AppUserColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="AppUser" parameterType="AppUser">
+		<include refid="AppUserColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE app_user SET 
+			id = #{id},
+			nickname = #{nickname},
+			userpassword = #{userpassword},
+			username = #{username},
+			age = #{age},
+			phone = #{phone},
+			portrait = #{portrait},
+			address = #{address},
+			citys = #{citys},
+			gender = #{gender},
+			isvip = #{isvip},
+			status = #{status}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM app_user WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="AppUser">
+		<include refid="AppUserColumns"/>
+			WHERE s.id = #{id}
+	</select>
+	
+		
+		<!-- 登录 目前只能用手机号登录
+		WHERE s.userpassword = #{userpassword} AND (s.phone=#{phone} OR s.nickname=#{phone})
+	 -->
+	<select id="loginAppUser" resultType="AppUser">
+		<include refid="AppUserColumns"/>
+			WHERE s.userpassword = #{userpassword} AND s.phone=#{phone}
+	</select>
+</mapper>

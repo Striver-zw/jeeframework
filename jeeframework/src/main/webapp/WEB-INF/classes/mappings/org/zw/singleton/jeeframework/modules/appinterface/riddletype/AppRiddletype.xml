@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-01-26 15:31:57
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.appinterface.riddletype.dao.AppRiddletypeDao">
+
+	<sql id="AppRiddletypeColumns">
+		SELECT
+			s.id AS "id",
+			s.name AS "name",
+			s.type_id AS "typeId"
+		FROM app_riddletype s
+	</sql>
+
+	<insert id="saveMode" parameterType="AppRiddletype" >
+		INSERT INTO app_riddletype(
+			id,
+			name,
+			type_id
+		)VALUES(
+			#{id},
+			#{name},
+			#{typeId}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="AppRiddletype">
+		<include refid="AppRiddletypeColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="AppRiddletype" parameterType="AppRiddletype">
+		<include refid="AppRiddletypeColumns"/> ORDER BY type_id
+	</select>
+
+	<update id="updateMode">
+		UPDATE app_riddletype SET 
+			id = #{id},
+			name = #{name},
+			type_id = #{typeId}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM app_riddletype WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="AppRiddletype">
+		<include refid="AppRiddletypeColumns"/>
+			WHERE s.id = #{id}
+	</select>
+</mapper>

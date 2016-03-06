@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-02-09 14:02:02
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.sys.dao.SysUserDao">
+
+	<sql id="SysUserColumns">
+		SELECT
+			s.id AS "id",
+			s.company_id AS "companyId",
+			s.office_id AS "officeId",
+			s.login_name AS "loginName",
+			s.password AS "password",
+			s.name AS "name",
+			s.email AS "email",
+			s.phone AS "phone",
+			s.mobile AS "mobile",
+			s.photo AS "photo",
+			s.login_ip AS "loginIp",
+			s.login_date AS "loginDate",
+			s.login_flag AS "loginFlag",
+			s.create_by AS "createBy",
+			s.create_date AS "createDate",
+			s.update_date AS "updateDate",
+			s.remarks AS "remarks",
+			s.del_flag AS "delFlag"
+		FROM sys_user s
+	</sql>
+
+	<insert id="saveMode" parameterType="SysUser" >
+		INSERT INTO sys_user(
+			id,
+			company_id,
+			office_id,
+			login_name,
+			password,
+			name,
+			email,
+			phone,
+			mobile,
+			photo,
+			login_ip,
+			login_date,
+			login_flag,
+			create_by,
+			create_date,
+			update_date,
+			remarks,
+			del_flag
+		)VALUES(
+			#{id},
+			#{companyId},
+			#{officeId},
+			#{loginName},
+			#{password},
+			#{name},
+			#{email},
+			#{phone},
+			#{mobile},
+			#{photo},
+			#{loginIp},
+			#{loginDate},
+			#{loginFlag},
+			#{createBy},
+			#{createDate},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="SysUser">
+		<include refid="SysUserColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="SysUser" parameterType="SysUser">
+		<include refid="SysUserColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE sys_user SET 
+			id = #{id},
+			company_id = #{companyId},
+			office_id = #{officeId},
+			login_name = #{loginName},
+			password = #{password},
+			name = #{name},
+			email = #{email},
+			phone = #{phone},
+			mobile = #{mobile},
+			photo = #{photo},
+			login_ip = #{loginIp},
+			login_date = #{loginDate},
+			login_flag = #{loginFlag},
+			create_by = #{createBy},
+			create_date = #{createDate},
+			update_date = #{updateDate},
+			remarks = #{remarks},
+			del_flag = #{delFlag}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM sys_user WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="SysUser">
+		<include refid="SysUserColumns"/>
+			WHERE s.id = #{id}
+	</select>
+	
+	<!--  -->
+	<select id="getByLoginName" resultType="SysUser" parameterType="String">
+		<include refid="SysUserColumns"/>
+			WHERE s.login_name = #{loginName}
+	</select>
+</mapper>

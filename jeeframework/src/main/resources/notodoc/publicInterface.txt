@@ -1,0 +1,6 @@
+地图接口
+阿里云根据地区名获取经纬度接口
+http://gc.ditu.aliyun.com/geocoding?a=苏州市 官方文档
+参数解释: 纬度,经度 type 001 (100代表道路，010代表POI，001代表门址，111可以同时显示前三项)
+阿里云根据经纬度获取地区名接口
+http://gc.ditu.aliyun.com/regeocoding?l=39.938133,116.395739&type=001 官方文档

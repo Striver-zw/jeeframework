@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-01-25 15:11:59
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.appinterface.booktype.dao.AppBooktypeDao">
+
+	<sql id="AppBooktypeColumns">
+		SELECT
+			s.id AS "id",
+			s.name AS "name"
+		FROM app_booktype s
+	</sql>
+
+	<insert id="saveMode" parameterType="AppBooktype" >
+		INSERT INTO app_booktype(
+			id,
+			name
+		)VALUES(
+			#{id},
+			#{name}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="AppBooktype">
+		<include refid="AppBooktypeColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="AppBooktype" parameterType="AppBooktype">
+		<include refid="AppBooktypeColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE app_booktype SET 
+			id = #{id},
+			name = #{name}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM app_booktype WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="AppBooktype">
+		<include refid="AppBooktypeColumns"/>
+			WHERE s.id = #{id}
+	</select>
+</mapper>

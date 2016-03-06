@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-01-25 15:48:08
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.appinterface.bookdesc.dao.AppBookdescDao">
+
+	<sql id="AppBookdescColumns">
+		SELECT
+			s.id AS "id",
+			s.bookclass AS "bookclass",
+			s.count AS "count",
+			s.fcount AS "fcount",
+			s.froms AS "from",
+			s.img AS "img",
+			s.name AS "name",
+			s.rcount AS "rcount",
+			s.summary AS "summary",
+			s.type_id AS "typeId"
+		FROM app_bookdesc s
+	</sql>
+
+	<insert id="saveMode" parameterType="AppBookdesc" >
+		INSERT INTO app_bookdesc(
+			id,
+			bookclass,
+			count,
+			fcount,
+			froms,
+			img,
+			name,
+			rcount,
+			summary,
+			type_id
+		)VALUES(
+			#{id},
+			#{bookclass},
+			#{count},
+			#{fcount},
+			#{from},
+			#{img},
+			#{name},
+			#{rcount},
+			#{summary},
+			#{typeId}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="AppBookdesc">
+		<include refid="AppBookdescColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="AppBookdesc" parameterType="AppBookdesc">
+		<include refid="AppBookdescColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE app_bookdesc SET 
+			id = #{id},
+			bookclass = #{bookclass},
+			count = #{count},
+			fcount = #{fcount},
+			froms = #{from},
+			img = #{img},
+			name = #{name},
+			rcount = #{rcount},
+			summary = #{summary},
+			type_id = #{typeId}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM app_bookdesc WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="AppBookdesc">
+		<include refid="AppBookdescColumns"/>
+			WHERE s.id = #{id}
+	</select>
+</mapper>

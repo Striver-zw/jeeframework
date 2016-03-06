@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-02-09 12:22:54
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.sys.dao.SysRoleDao">
+
+	<sql id="SysRoleColumns">
+		SELECT
+			s.id AS "id",
+			s.office_id AS "officeId",
+			s.name AS "name",
+			s.enname AS "enname",
+			s.useable AS "useable",
+			s.create_by AS "createBy",
+			s.create_date AS "createDate",
+			s.update_date AS "updateDate",
+			s.remarks AS "remarks",
+			s.del_flag AS "delFlag"
+		FROM sys_role s
+	</sql>
+
+	<insert id="saveMode" parameterType="SysRole" >
+		INSERT INTO sys_role(
+			id,
+			office_id,
+			name,
+			enname,
+			useable,
+			create_by,
+			create_date,
+			update_date,
+			remarks,
+			del_flag
+		)VALUES(
+			#{id},
+			#{officeId},
+			#{name},
+			#{enname},
+			#{useable},
+			#{createBy},
+			#{createDate},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="SysRole">
+		<include refid="SysRoleColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="SysRole" parameterType="SysRole">
+		<include refid="SysRoleColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE sys_role SET 
+			id = #{id},
+			office_id = #{officeId},
+			name = #{name},
+			enname = #{enname},
+			useable = #{useable},
+			create_by = #{createBy},
+			create_date = #{createDate},
+			update_date = #{updateDate},
+			remarks = #{remarks},
+			del_flag = #{delFlag}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM sys_role WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="SysRole">
+		<include refid="SysRoleColumns"/>
+			WHERE s.id = #{id}
+	</select>
+</mapper>

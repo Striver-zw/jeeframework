@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache updateCheck="false" name="defaultCache">
+
+	<diskStore path="../temp/jeesite/ehcache" />
+<!-- 	<defaultCache
+		maxElementsInMemory="1000"
+		eternal="false"
+		timeToIdleSeconds="120"
+		timeToLiveSeconds="120"
+		maxElementsOnDisk="10000000"
+		diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU"	>
+		<persistence strategy="localTempSwap"/>
+		
+	
+	</defaultCache> -->
+	
+	<!-- <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="true"
+            maxElementsOnDisk="10000000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU"
+            />
+	 -->
+	 
+	  <defaultCache
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="1200"
+        overflowToDisk="true"
+        />
+        <!-- 最大的缓存对象个数=10000个
+        	永远保存：false
+        	如果120秒都没有人理他，自动清除这个对象，这样可以腾出位置让其他对象缓存进来
+        	缓存对象最长的生存时间为1200秒（这个设置一定要大于timeToIdleSeconds才合理）
+        	如果缓存溢出，也就是超过最大的缓存对象10000个时，把溢出的对象存到硬盘上去，上面有个临时文件夹设置
+        	 -->
+
+	<!-- 系统活动会话缓存 -->
+   <!--  <cache name="activeSessionsCache" maxEntriesLocalHeap="10000" overflowToDisk="true"
+           eternal="true" timeToLiveSeconds="0" timeToIdleSeconds="0"
+           diskPersistent="true" diskExpiryThreadIntervalSeconds="600"/> -->
+           
+	<cache name="menuitem"
+		maxElementsInMemory="10000"
+		eternal="false"
+		timeToIdleSeconds="120"
+		timeToLiveSeconds="120">
+	</cache>
+	
+	    <cache
+        name="userCache"
+        maxElementsInMemory="100"
+        eternal="false"
+        timeToIdleSeconds="600"
+        timeToLiveSeconds="3600"
+        overflowToDisk="true"
+    />
+	<!-- 内存中最多存放100个对象。
+	 不是永久缓存。
+	 最大空闲时间为600秒。
+  最大活动时间为3600秒。
+ 如果内存对象溢出则保存到磁盘。
+	 -->
+           
+</ehcache>

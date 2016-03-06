@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+ xmlns:context="http://www.springframework.org/schema/context" 
+ xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:task="http://www.springframework.org/schema/task" 
+    xmlns:cache="http://www.springframework.org/schema/cache"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd
+       http://www.springframework.org/schema/cache  
+       http://www.springframework.org/schema/cache/spring-cache-3.2.xsd"
+	>
+	
+	    <!-- 加载配置属性文件 -->
+	<context:property-placeholder ignore-unresolvable="true" location="classpath:jeeframework.properties" />
+	
+	<!-- Shiro权限过滤过滤器定义 -->
+	<bean name="shiroFilterChainDefinitions" class="java.lang.String">
+		<constructor-arg>
+			<value>
+			<!-- 匿名用户可以访问login.jsp -->
+			    <!-- /cas = cas -->
+				<!-- /admin/** = authc -->
+			<!-- /admin/**=authc -->
+			    /login = authc
+			  /assets/** = anon
+			    <!-- /login = anon -->
+				/logout = logout
+				/** = user
+			</value>
+		</constructor-arg>
+	</bean>
+	
+	<!-- 安全认证过滤器 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<!--链接到登录页面,如果没有登录，直接访问一个url，也会跳转到登录页面-->
+		<property name="loginUrl" value="/login" />
+		<property name="successUrl" value="/index.jsp" />
+		<!--如果当前用户在访问某一个资源的时候，没有被授权，应该跳转到的页面-->
+	<!-- 	<property name="unauthorizedUrl" value="/unauth.jsp"></property> -->
+		
+		
+		<property name="filters">
+            <map>
+                <entry key="cas" value-ref="casFilter"/>
+              <!--   <entry key="authc" value-ref="formAuthenticationFilter"/> -->
+               <!--  <entry key="authc" value-ref="resourceCheckFilter" /> -->
+                
+            </map>
+        </property>
+		<property name="filterChainDefinitions">
+			<ref bean="shiroFilterChainDefinitions"/>
+		</property>
+	</bean>
+	
+	<!-- CAS认证过滤器 -->  
+	<bean id="casFilter" class="org.apache.shiro.cas.CasFilter">  
+		<property name="failureUrl" value="/login"/>
+	</bean>
+	
+		<!-- 请求认证器 -->  
+<!-- 	<bean id="resourceCheckFilter" class="org.zw.singleton.jeeframework.modules.basis.shiro.ResourceCheckFilter">  
+		<property name="errorUrl" value="/unauth.jsp"/>
+	</bean> -->
+
+	
+	
+	<!-- 定义Shiro安全管理配置 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="sysAuthorizingRealm" />
+		<!-- <property name="authorizer.permissionResolver" ref="urlPermissionResovler"/> -->
+		<!-- <property name="sessionManager" ref="sessionManager" />
+		<property name="cacheManager" ref="shiroCacheManager" /> -->
+		 <!-- <property name="cacheManager" ref="cacheManager" /> -->
+	</bean>
+
+
+
+<!-- 	<bean id="hashedCredentialsMatcher"
+		class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+		hashAlgorithmName 必须的，没有默认值。可以有MD5或者SHA-1，如果对密码安全有更高要求可以用SHA-256或者更高。这里使用MD5
+		<property name="hashAlgorithmName" value="MD5" />
+		storedCredentialsHexEncoded 默认是true，此时用的是密码加密用的是Hex编码；false时用Base64编码
+		<property name="storedCredentialsHexEncoded" value="true" />
+		hashIterations 迭代次数，默认值是1
+		<property name="hashIterations" value="1" />
+	</bean> -->
+	
+	<!-- 会话管理器 -->
+<!-- 	<bean id="sessionManager" class="org.apache.shiro.session.mgt.DefaultSessionManager">
+		<property name="sessionDAO" ref="sessionDAO" />
+	会话超时时间，单位：毫秒 
+		<property name="globalSessionTimeout" value="1800000" />
+		<property name="deleteInvalidSessions" value="true" />
+		
+				
+		定时清理失效会话, 清理用户直接关闭浏览器造成的孤立会话  
+		<property name="sessionValidationInterval" value="180000"/>
+ 		<property name="sessionValidationSchedulerEnabled" value="false"/>
+ 		<property name="sessionValidationSchedulerEnabled" value="true"/>
+	</bean>  -->
+
+	<!-- 会话 ID 生成器 -->
+<!-- 	<bean id="sessionIdGenerator"
+		class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator" /> -->
+		
+	 <!-- 会话 DAO -->
+<!-- 	<bean id="sessionDAO"	class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
+		<property name="activeSessionsCacheName" value="activeSessionsCache" />
+		<property name="sessionIdGenerator" ref="sessionIdGenerator" />
+		<property name="cacheManager" ref="shiroCacheManager" />
+	</bean> -->
+
+	
+	<!-- 定义授权缓存管理器 -->
+<!-- 	<bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManager" ref="ehCacheManagerFactory"/>
+	</bean> -->
+	
+	
+	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+	
+	<!-- AOP式方法级权限检查  -->
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+    	<property name="securityManager" ref="securityManager"/>
+	</bean>
+
+
+</beans>

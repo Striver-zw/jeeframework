@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!--
+		生成时间：2016-01-26 11:28:31
+		代码器版本号：2.0
+	-->
+
+<mapper namespace="org.zw.singleton.jeeframework.modules.appinterface.bookintem.dao.AppBookintemDao">
+
+	<sql id="AppBookintemColumns">
+		SELECT
+			s.id AS "id",
+			s.message AS "message",
+			s.title AS "title",
+			s.book AS "book"
+		FROM app_bookintem s
+	</sql>
+
+	<insert id="saveMode" parameterType="AppBookintem" >
+		INSERT INTO app_bookintem(
+			id,
+			message,
+			title,
+			book
+		)VALUES(
+			#{id},
+			#{message},
+			#{title},
+			#{book}
+		)
+	</insert>
+
+	<!-- <![CDATA[   ]]>  -->
+	<!-- 分页查询 --> 
+	<select id="findSelectPage" resultType="AppBookintem">
+		<include refid="AppBookintemColumns"/>
+	</select>
+
+	<select id="findSelect" resultType="AppBookintem" parameterType="AppBookintem">
+		<include refid="AppBookintemColumns"/>
+	</select>
+
+	<update id="updateMode">
+		UPDATE app_bookintem SET 
+			id = #{id},
+			message = #{message},
+			title = #{title},
+			book = #{book}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteModeId">
+		DELETE FROM app_bookintem WHERE id = #{id}
+	</delete>
+
+	<select id="getMode" resultType="AppBookintem">
+		<include refid="AppBookintemColumns"/>
+			WHERE s.id = #{id}
+	</select>
+</mapper>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>跨域请求</title>
+
+</head>
+
+<body>
+
+名字：<input type="text" id="name"/><br><br>
+年龄：<input type="text" id="age"/><br><br>
+<button type="submit" id="sub" onclick="ss()">提交</button>
+
+<script src="static/assets/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		function ss() {
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("age").value;
+			if ((name == null || name == "") || (age == null || age == "")) {
+				alert("请填写完整，不能为空");
+			} else {
+				jQuery.ajax({
+							data : '{"from":"' + name + '","uuid":"' + email + '"}',
+							url : 'http://192.168.1.21:8080/jeeframework/CodeTest/crossdomain.do',
+							crossDomain : true,
+							dataType : 'jsonp',
+							type : 'post',
+							//请求参数名 后台获取
+							jsonpCallback : "jsoncallback",
+						});
+			}
+
+		}
+		//对返回的数据处理
+		//"jsoncallback({"from":"去去1","uuid":"121"})"
+		function jsoncallback(data) {
+			console.log(data);
+		}
+	</script>
+</body>
+</html>
