@@ -15,7 +15,7 @@
 		smtp协议 outlook邮箱  容易发
 		<property name="host" value="smtp.sina.com" />
 		<property name="username" value="jeeframework" />
-		<property name="password" value="2321277858zw" />
+		<property name="password" value="**" />
 		端口都为25
 		<property name="port" value="25" />
 		<property name="defaultEncoding" value="utf-8" />
