@@ -36,7 +36,7 @@ import javax.servlet.http.HttpServletResponse;
   * @Copyright
 */
 @Controller
-@RequestMapping(value = "SysRole")
+@RequestMapping(value = "/a/SysRole")
 public class SysRoleController {
 
 	@Autowired

@@ -36,7 +36,7 @@ import javax.servlet.http.HttpServletResponse;
   * @Copyright
 */
 @Controller
-@RequestMapping(value = "SysOffice")
+@RequestMapping(value = "/a/SysOffice")
 public class SysOfficeController {
 
 	@Autowired

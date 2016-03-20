@@ -40,7 +40,7 @@ import org.zw.singleton.jeeframework.modules.basis.base.RequestStatus;
   * @Copyright
 */
 @Controller
-@RequestMapping(value = "AppVersion")
+@RequestMapping(value = "${interfacePath}/AppVersion")
 public class AppVersionController {
 
 	@Autowired

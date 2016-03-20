@@ -8,25 +8,21 @@
 */
 package org.zw.singleton.jeeframework.modules.sys.controller;
 
-import org.zw.singleton.jeeframework.modules.sys.entity.SysMenu;
-import org.zw.singleton.jeeframework.modules.sys.entity.SysMenuVo;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.zw.singleton.jeeframework.modules.sys.entity.SysMenu;
 import org.zw.singleton.jeeframework.modules.sys.service.SysMenuService;
-
-import com.mysql.fabric.xmlrpc.base.Array;
-
-import org.zw.singleton.jeeframework.modules.basis.page.Page;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 
 /**  
@@ -36,12 +32,12 @@ import javax.servlet.http.HttpServletResponse;
   * @CreateDate: 2016-02-09 12:19:14
   * @UpdateAuthor:
   * @UpdateDate:
-  * @@UpdateDesc:
+  * @UpdateDesc:
   * @version:
   * @Copyright
 */
 @Controller
-@RequestMapping(value = "/sysMenu")
+@RequestMapping(value = "/a/sysMenu")
 public class SysMenuController {
 
 	@Autowired

@@ -41,7 +41,7 @@ import net.sf.json.JSONObject;
   * @Copyright (c)-2016
  */
 @Controller
-@RequestMapping(value = "CodeTest")
+@RequestMapping(value = "/a/CodeTest")
 public class CodeTestController {
 
 	@Autowired

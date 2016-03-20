@@ -29,7 +29,7 @@ import org.zw.singleton.jeeframework.modules.basis.shiro.utils.ShiroMd5;
   * @Copyright (c)-2016
  */
 @Controller
-//@RequestMapping(value = "/login"
+@RequestMapping(value = "")
 public class LoginController{
 	
 	/**

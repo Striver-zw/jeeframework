@@ -6,7 +6,7 @@ $(document).ready(function(){
 //	console.log("000");
 	$.ajax({
 		type: "POST",
-        url: "/jeeframework/sysMenu/sysMenuList.do",
+        url: "/jeeframework/a/sysMenu/sysMenuList.do",
         cache:false,
         contentType : "application/x-www-form-urlencoded; charset=utf-8",  
         success: function(data){

@@ -48,7 +48,7 @@ import org.zw.singleton.jeeframework.modules.sys.entity.SysUser;
   * @Copyright
 */
 @Controller
-@RequestMapping(value = "/genCode")
+@RequestMapping(value = "/a/genCode")
 public class GenCodeController {
 
 	@Autowired

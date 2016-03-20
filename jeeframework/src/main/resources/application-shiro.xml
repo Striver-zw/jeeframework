@@ -31,7 +31,7 @@
 			  /assets/** = anon
 			    <!-- /login = anon -->
 				/logout = logout
-				/** = user
+				/a/** = user
 			</value>
 		</constructor-arg>
 	</bean>

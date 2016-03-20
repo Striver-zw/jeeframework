@@ -24,23 +24,23 @@ import org.zw.singletion.jeeframework.test.BaseTest;
  */
 public class TestShiro extends BaseTest{
 
-	@Test
-	public void test() {
-		//
-		SecurityManager manager = new IniSecurityManagerFactory("classpath:shiro.ini").getInstance();
-		//
-		SecurityUtils.setSecurityManager(manager);
-		//
-		Subject subject = SecurityUtils.getSubject();
-		UsernamePasswordToken upt = new UsernamePasswordToken("zw", "123");
-		try {
-			subject.login(upt);
-			System.out.println(subject.getPrincipal());
-		} catch (UnknownAccountException e) {
-			System.err.println("用户不存在");
-		} catch (IncorrectCredentialsException e) {
-			System.err.println("密码不正确");
-		}
-	}
+//	@Test
+//	public void test() {
+//		//
+//		SecurityManager manager = new IniSecurityManagerFactory("classpath:shiro.ini").getInstance();
+//		//
+//		SecurityUtils.setSecurityManager(manager);
+//		//
+//		Subject subject = SecurityUtils.getSubject();
+//		UsernamePasswordToken upt = new UsernamePasswordToken("zw", "123");
+//		try {
+//			subject.login(upt);
+//			System.out.println(subject.getPrincipal());
+//		} catch (UnknownAccountException e) {
+//			System.err.println("用户不存在");
+//		} catch (IncorrectCredentialsException e) {
+//			System.err.println("密码不正确");
+//		}
+//	}
 
 }

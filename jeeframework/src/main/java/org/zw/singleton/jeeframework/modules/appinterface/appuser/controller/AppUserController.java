@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.zw.singleton.jeeframework.modules.appinterface.appuser.entity.AppUser;
 import org.zw.singleton.jeeframework.modules.appinterface.appuser.service.AppUserService;
+import org.zw.singleton.jeeframework.modules.basis.base.RequestStatus;
 
 
 /**  
@@ -36,7 +37,7 @@ import org.zw.singleton.jeeframework.modules.appinterface.appuser.service.AppUse
   * @Copyright
 */
 @Controller
-@RequestMapping(value = "${adminPath}/AppUser")
+@RequestMapping(value = "${interfacePath}/AppUser")
 public class AppUserController {
 
 	@Autowired
@@ -63,9 +64,9 @@ public class AppUserController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = { "/loginAppuser.do" }, method = { RequestMethod.POST, RequestMethod.GET })
-	public Map<String,Object> loginAppuser(@RequestBody AppUser appuser,HttpServletRequest request,HttpServletResponse response){
+	public Map<String,Object> loginAppuser(@RequestBody RequestStatus<AppUser> appuser,HttpServletRequest request,HttpServletResponse response){
 		Map<String,Object> map = new HashMap<String,Object>();	
-		AppUser appuser2 = appUserService.loginAppUser(appuser);
+		AppUser appuser2 = appUserService.loginAppUser(appuser.getData());
 		if(appuser2!=null){
 			map.put("status", "1");
 			map.put("mes", "success");
@@ -75,9 +76,6 @@ public class AppUserController {
 			map.put("mes", "success");
 			map.put("data", new HashMap<String,Object>());
 		}
-		
-//		MailUtils n = new MailUtils();
-//		n.sendmail();
 		return map;
 	}
 }

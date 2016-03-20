@@ -37,7 +37,7 @@ import javax.servlet.http.HttpServletResponse;
   * @Copyright
 */
 @Controller
-@RequestMapping(value = "Region")
+@RequestMapping(value = "/a/Region")
 public class RegionController {
 
 	@Autowired
