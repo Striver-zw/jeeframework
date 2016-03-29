@@ -17,6 +17,14 @@ import org.zw.singleton.jeeframework.common.utils.download.SaveImage;
  */
 public class Base64Load {
 
+	/**
+	 * 
+	 * @MethodsDescription:
+	 * @MethodName:phone
+	 * @param portrait 文件流
+	 * @Author:singleton-zw
+	 * @Return:void
+	 */
 	public static void phone(String portrait){
 		String imageName = System.currentTimeMillis() + ".jpg";
 		if (portrait != null) {
