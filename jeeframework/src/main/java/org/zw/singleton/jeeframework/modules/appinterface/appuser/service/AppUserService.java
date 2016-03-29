@@ -62,5 +62,8 @@ public class AppUserService {
 	public AppUser loginAppUser(AppUser appuser) {
 		return this.appUserDao.loginAppUser(appuser);
 	}
+	public AppUser checkAppUser(AppUser appuser) {
+		return this.appUserDao.checkAppUser(appuser);
+	}
 
 }

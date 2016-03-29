@@ -27,11 +27,11 @@
 			    <!-- /cas = cas -->
 				<!-- /admin/** = authc -->
 			<!-- /admin/**=authc -->
-			    /login = authc
+			    /${adminPath}/login = authc
 			  /assets/** = anon
 			    <!-- /login = anon -->
 				/logout = logout
-				/a/** = user
+				/${adminPath}/** = user
 			</value>
 		</constructor-arg>
 	</bean>
@@ -40,7 +40,7 @@
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
 		<!--链接到登录页面,如果没有登录，直接访问一个url，也会跳转到登录页面-->
-		<property name="loginUrl" value="/login" />
+		<property name="loginUrl" value="/${adminPath}/login" />
 		<property name="successUrl" value="/index.jsp" />
 		<!--如果当前用户在访问某一个资源的时候，没有被授权，应该跳转到的页面-->
 	<!-- 	<property name="unauthorizedUrl" value="/unauth.jsp"></property> -->

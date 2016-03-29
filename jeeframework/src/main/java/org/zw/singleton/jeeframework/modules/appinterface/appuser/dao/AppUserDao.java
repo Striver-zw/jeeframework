@@ -36,4 +36,14 @@ public interface AppUserDao extends CrudDao<AppUser> {
 	 * @返回值:Appuser
 	 */
 	public AppUser loginAppUser(AppUser appuser);
+	/**
+	 * 
+	 * @MethodsDescription: 检查手机号是否存在
+	 * @MethodName:checkAppUser
+	 * @param appuser
+	 * @return
+	 * @Author:singleton-zw
+	 * @Return:AppUser
+	 */
+	public AppUser checkAppUser(AppUser appuser);
 }

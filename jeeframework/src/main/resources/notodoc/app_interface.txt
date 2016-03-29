@@ -1,0 +1,9 @@
+1、登录
+url
+http://localhost:8080/jeeframework/i/AppUser/loginAppuser.do
+
+{"data":{"phone":"110",
+"userpassword":"123456"}}
+
+
+{"status":"1","data":{"substate":"1","submesg":"登录成功！","subdata":{"id":"1","nickname":"zw","userpassword":"123456","username":"ssssss","age":23,"phone":110,"portrait":"http://23.251.49.35/jeeframework/appfilter/lohon.jpg","address":null,"citys":null,"gender":"1","isvip":0,"status":0}},"mesg":"Success"}

@@ -99,4 +99,9 @@
 		<include refid="AppUserColumns"/>
 			WHERE s.userpassword = #{userpassword} AND s.phone=#{phone}
 	</select>
+	
+	<select id="checkAppUser" resultType="AppUser">
+		<include refid="AppUserColumns"/>
+			WHERE s.phone=#{phone}
+	</select>
 </mapper>

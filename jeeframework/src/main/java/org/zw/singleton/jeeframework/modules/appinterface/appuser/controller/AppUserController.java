@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.zw.singleton.jeeframework.common.constant.Constant;
+import org.zw.singleton.jeeframework.common.constant.FinalData;
 import org.zw.singleton.jeeframework.modules.appinterface.appuser.entity.AppUser;
 import org.zw.singleton.jeeframework.modules.appinterface.appuser.service.AppUserService;
 import org.zw.singleton.jeeframework.modules.basis.base.RequestStatus;
@@ -66,15 +68,21 @@ public class AppUserController {
 	@RequestMapping(value = { "/loginAppuser.do" }, method = { RequestMethod.POST, RequestMethod.GET })
 	public Map<String,Object> loginAppuser(@RequestBody RequestStatus<AppUser> appuser,HttpServletRequest request,HttpServletResponse response){
 		Map<String,Object> map = new HashMap<String,Object>();	
-		AppUser appuser2 = appUserService.loginAppUser(appuser.getData());
-		if(appuser2!=null){
-			map.put("status", "1");
-			map.put("mes", "success");
-			map.put("data", appuser2);
-		}else{
-			map.put("status", "1");
-			map.put("mes", "success");
-			map.put("data", new HashMap<String,Object>());
+		try {
+			AppUser appuser2 = appUserService.checkAppUser(appuser.getData());
+			if(appuser2!=null){
+				if(appuser2.getUserpassword().equals(appuser.getData().getUserpassword())){
+					appuser2.setPortrait(Constant.getLHUrl(request,appuser2.getPortrait()));
+					map = FinalData.puttingMap("1", FinalData.MESG_SUCCESS, "1", "登录成功！", appuser2);
+				}else{
+					map = FinalData.puttingMap("1", FinalData.MESG_SUCCESS,"0","密码错误！", null);
+				}
+			}else{
+				map = FinalData.puttingMap("1", FinalData.MESG_SUCCESS, "0", "该用户不存在！", null);
+			}
+		} catch (Exception e) {
+			map = FinalData.puttingMap("0", FinalData.MESG_ERROR);
+			e.printStackTrace();
 		}
 		return map;
 	}

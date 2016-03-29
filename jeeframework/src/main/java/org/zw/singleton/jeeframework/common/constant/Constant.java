@@ -88,5 +88,23 @@ public class Constant {
 		String path = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		return path;
 	}
+	
+	/**
+	 * 
+	 * @MethodsDescription:拼接全url
+	 * @MethodName:getLHUrl
+	 * @param request
+	 * @param data
+	 * @return
+	 * @Author:singleton-zw
+	 * @Return:String
+	 */
+	public static String getLHUrl(HttpServletRequest request,String data){
+		String pathData = getLocalhostPathData(request);
+		if(!"".equals(data)|| data!=null){
+			return pathData+data;
+		}
+		return null;
+	}
 
 }

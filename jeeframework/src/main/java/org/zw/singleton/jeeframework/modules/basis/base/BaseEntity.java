@@ -17,13 +17,9 @@ import java.io.Serializable;
 public class BaseEntity<T> implements Serializable {
 
 	public static final long serialVersionUID = 1L;
-
-
 	public String id;
 
-	public BaseEntity() {
-
-	}
+	public BaseEntity() {}
 
 	public String getId() {
 		return id;

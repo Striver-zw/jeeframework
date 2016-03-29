@@ -83,7 +83,7 @@ public class AppVersionController {
 				map = FinalData.puttingMap("1",FinalData.MESG_SUCCESS,"0","不需要更新", null);
 			}
 		} catch (Exception e) {
-			map = FinalData.puttingMap("0", e.getMessage());
+			map = FinalData.puttingMap("0", FinalData.MESG_ERROR);
 			e.printStackTrace();
 		}
 		return map;

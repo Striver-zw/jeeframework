@@ -15,8 +15,6 @@ import java.io.Serializable;
   * @Copyright (c)-2016
  */
 public class RequestStatus<T> implements Serializable {
-
-	
 	/**
 	 * @说明: 
 	 * @名称:serialVersionUID

@@ -139,7 +139,6 @@ public interface CrudDao<T> extends SysDao {
 
 	public List<T> findSelect(T t);
 	
-	
 	/**
 	 * 分页查询
 	 * @方法说明:
@@ -151,6 +150,5 @@ public interface CrudDao<T> extends SysDao {
 	 * @返回值:Page<T>
 	 */
 	public List<T> findSelectPage(Page<T> page);
-
 
 }
