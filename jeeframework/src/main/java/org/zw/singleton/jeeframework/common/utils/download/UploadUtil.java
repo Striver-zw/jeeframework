@@ -26,7 +26,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
  * 文件上传
   * @类名:UploadImageUtil
   * @类描述:
-  * @作者:张威
+  * @作者:
   * @创建时间:2015年9月25日-下午5:20:22
   * @修改人:
   * @修改时间:
@@ -205,7 +205,7 @@ public class UploadUtil {
 	 * @方法名称:deleteFlie
 	 * @param path
 	 * @throws Exception
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:	void
 	 */
 	public static void deleteFlie(String path)throws Exception{

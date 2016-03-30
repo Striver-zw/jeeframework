@@ -13,7 +13,7 @@ import org.zw.singleton.jeeframework.common.utils.download.FileUtilsJ;
  * 	http://www.cnblogs.com/chinafine/articles/1787118.html
   * @类名:SysData
   * @类描述:
-  * @作者:张威
+  * @作者:
   * @创建时间:2016年1月6日-上午9:43:38
   * @修改人:
   * @修改时间:

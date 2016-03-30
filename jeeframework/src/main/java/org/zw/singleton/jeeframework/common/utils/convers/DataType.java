@@ -10,13 +10,13 @@ import org.apache.commons.lang.StringUtils;
 public class DataType {
 
 	/**
-	 * 
-	 * @方法说明: 吧字符数组转出成整数数组
-	 * @方法名称:StringArrayIntegerArray
+	 * 吧字符数组转出成整数数组
+	 * @methodsDescription:
+	 * @methodName: StringArrayIntegerArray
 	 * @param sids
-	 * @return int
-	 * @作者:张威
-	 * @返回值:	Integer[]
+	 * @return
+	 * @author: singleton-zw
+	 * @return: Integer[]
 	 */
 	public static Integer[] StringArrayIntegerArray(String[] sids) {
 		if(sids!=null&&sids.length>0){

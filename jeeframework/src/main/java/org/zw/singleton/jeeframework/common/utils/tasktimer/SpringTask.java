@@ -1,14 +1,13 @@
 package org.zw.singleton.jeeframework.common.utils.tasktimer;
 
 import org.springframework.context.annotation.Lazy;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 /**
  * <!-- 计划任务配置，用 @Service @Lazy(false)标注类，用@Scheduled(cron = "0 0 2 * * ?")标注方法 -->
   * @类名:Testo
   * @类描述:
-  * @作者:张威
+  * @作者:
   * @创建时间:2016年1月11日-下午2:22:32
   * @修改人:
   * @修改时间:

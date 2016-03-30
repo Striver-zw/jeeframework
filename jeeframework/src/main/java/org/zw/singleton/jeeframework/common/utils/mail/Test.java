@@ -12,14 +12,13 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-import javax.mail.internet.MimeUtility;
 /**
  * java版
  * http://www.cnblogs.com/xdp-gacl/p/4216311.html
  * 这里使用的 smtp.sina.com 新浪的邮箱进行发送
   * @类名:Test
   * @类描述:
-  * @作者:张威
+  * @作者:
   * @创建时间:2016年1月11日-下午4:54:46
   * @修改人:
   * @修改时间:
@@ -62,7 +61,7 @@ public class Test {
 	     * @param session
 	     * @return
 	     * @throws Exception
-	     * @作者:张威
+	     * @作者:
 	     * @返回值:MimeMessage
 	     */
 	    public static MimeMessage createSimpleMail(Session session)
@@ -213,7 +212,7 @@ public class Test {
 	     * @param session
 	     * @return
 	     * @throws Exception
-	     * @作者:张威
+	     * @作者:
 	     * @返回值:MimeMessage
 	     */
 	    public static MimeMessage createSimpleMail1(Session session)

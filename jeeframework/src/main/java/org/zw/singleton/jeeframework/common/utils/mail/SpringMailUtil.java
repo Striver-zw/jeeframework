@@ -23,7 +23,7 @@ public class SpringMailUtil {
 	 * @param mails 群发人
 	 * @param subject 主题
 	 * @param text 内容
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:boolean
 	 */
 	public static boolean sendMail(JavaMailSender mailSender,SimpleMailMessage simpleMailMessage,String mail,String[] mails,String subject,String text){
@@ -65,7 +65,7 @@ public class SpringMailUtil {
 	 * @param text
 	 * @param list
 	 * @return
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:boolean
 	 */
 	public static boolean sendMimeMessageHelper(JavaMailSenderImpl mailSender, SimpleMailMessage simpleMailMessage,

@@ -31,7 +31,7 @@ public class JsonPerson {
 	 * @param reader
 	 * @return
 	 * @throws IOException
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:	JSONObject
 	 */
 	public JSONObject getPostReader(BufferedReader reader) throws IOException {
@@ -51,7 +51,7 @@ public class JsonPerson {
 	 * @return
 	 * @throws UnsupportedEncodingException
 	 * @throws IOException
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:	String
 	 */
 	public static String toJson(HttpServletRequest request) throws UnsupportedEncodingException, IOException{
@@ -71,7 +71,7 @@ public class JsonPerson {
 	   * @方法名称:beanToJson
 	   * @param bean
 	   * @return
-	   * @作者:张威
+	   * @作者:
 	   * @返回值:	String
 	   */
     public static String beanToJson(Object bean) {

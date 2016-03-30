@@ -30,7 +30,7 @@ public class CTimeCompareTo {
 	 * @方法名称:getAges
 	 * @param date2 传人的时间
 	 * @return 年龄
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:	int
 	 */
 	public static int getAges(Date date2) {

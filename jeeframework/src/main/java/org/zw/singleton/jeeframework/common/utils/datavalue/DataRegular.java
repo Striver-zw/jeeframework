@@ -26,7 +26,7 @@ public class DataRegular {
 	 * @param flag 是否截取特殊字符
 	 * @param i 截取的个数
 	 * @return
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:int[]
 	 */
 	public static int[] getIntArray(String data, boolean flag, int i) {

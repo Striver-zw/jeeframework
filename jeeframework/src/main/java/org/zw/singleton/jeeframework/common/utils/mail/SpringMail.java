@@ -35,7 +35,7 @@ public class SpringMail {
 	  * @方法说明:
 	  * @方法名称:main
 	  * @param args
-	  * @作者:张威
+	  * @作者:
 	  * @返回值:void
 	  */
 	 public static void main(String[] args) {

@@ -2,23 +2,17 @@ package org.zw.singleton.jeeframework.common.utils.tasktimer;
 
 import java.util.Date;
 
-import javax.annotation.processing.SupportedSourceVersion;
-
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.quartz.CronTriggerFactoryBean;
-import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
-import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Service;
 
 /**
  * http://cron.qqe2.com/
   * @类名:QuartzDome
   * @类描述:
-  * @作者:张威
+  * @作者:
   * @创建时间:2016年1月13日-上午10:13:03
   * @修改人:
   * @修改时间:
@@ -47,7 +41,7 @@ public class QuartzDome {
 	 * <property name="exposeSchedulerInRepository" value="true" />
 	 * @方法说明:
 	 * @方法名称:getSchedulerFactory
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:void
 	 */
 	public void getSchedulerFactory(){
@@ -64,7 +58,7 @@ public class QuartzDome {
 	 * 执行的方法
 	 * @方法说明:
 	 * @方法名称:execute
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:void
 	 */
     public void execute()  {  
@@ -83,7 +77,7 @@ public class QuartzDome {
      * 关闭所有定时任务 
      * @方法说明:
      * @方法名称:shutdownJobs
-     * @作者:张威
+     * @作者:
      * @返回值:void
      */
     public  void shutdownJobs() {  

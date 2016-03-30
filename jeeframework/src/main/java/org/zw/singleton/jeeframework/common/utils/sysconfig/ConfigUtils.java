@@ -68,7 +68,7 @@ public class ConfigUtils {
 	 * @方法说明:
 	 * @方法名称:getDBParameter
 	 * @return
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:String[]
 	 */
 	public static String[] getDBParameter(){

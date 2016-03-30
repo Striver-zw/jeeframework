@@ -6,7 +6,7 @@ import java.lang.reflect.ParameterizedType;
  * 
   * @类名:GenericClass
   * @类描述: 泛型得到当前实体类的工具栏
-  * @作者:张威
+  * @作者:
   * @创建时间:2015年8月24日-上午10:14:19
   * @修改人:
   * @修改时间:

@@ -7,7 +7,7 @@ import java.util.UUID;
  * 
   * @类名:GetIdUtil
   * @类描述:生成随机数
-  * @作者:张威
+  * @作者:
   * @创建时间:2015年8月21日-下午4:27:22
   * @修改人:
   * @修改时间:
@@ -22,7 +22,7 @@ public class GetRandomUtil {
 	 * @方法说明:生成UUID 32位的  掉 "-", ""
 	 * @方法名称:getUUID
 	 * @return 返回32位的字符串
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:	String	32位的id
 	 */
 	public static String getUUID() {
@@ -36,7 +36,7 @@ public class GetRandomUtil {
 	 * @方法名称:getUUIDByRules
 	 * @param rules 输入
 	 * @return 返回32位的字符串
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:	String
 	 */
 	public static String getUUIDByRules(String rules) {

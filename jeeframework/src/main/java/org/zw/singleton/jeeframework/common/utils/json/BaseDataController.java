@@ -11,14 +11,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.zw.singleton.jeeframework.common.constant.Constant;
-
 import net.sf.json.JSONObject;
 /**
  * 获取移动端请求数据
   * @类名:BaseDataCourier
   * @类描述:
-  * @作者:张威
+  * @作者:
   * @创建时间:2015年9月17日-下午2:10:18
   * @修改人:
   * @修改时间:

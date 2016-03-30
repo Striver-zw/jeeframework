@@ -9,7 +9,7 @@ import java.util.UUID;
  * 封装各种生成唯一性ID算法的工具类
   * @类名:IdGen
   * @类描述:
-  * @作者:张威
+  * @作者:
   * @创建时间:2015年9月23日-下午1:17:31
   * @修改人:
   * @修改时间:
@@ -41,7 +41,7 @@ public class IdGen {
 	 * @方法说明:生成UUID 32位的  掉 "-", ""
 	 * @方法名称:getUUID
 	 * @return
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:	String	32位的id
 	 */
 	public static String getUUID() {
@@ -55,7 +55,7 @@ public class IdGen {
 	 * @方法名称:getUUIDByRules
 	 * @param rules 输入
 	 * @return
-	 * @作者:张威
+	 * @作者:
 	 * @返回值:	String
 	 */
 	public static String getUUIDByRules(String rules) {
